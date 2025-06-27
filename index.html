@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ตารางผ่อนบัตรเครดิต</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ตารางคำนวณผ่อนบัตรเครดิต</h1>
+
+    <label for="priceInput">ราคาสินค้า (บาท):</label>
+    <input type="number" id="priceInput" value="7590" oninput="recalculateAll()">
+
+    <table>
+      <thead>
+        <tr>
+          <th>บัตรเครดิต</th>
+          <th>ดอกเบี้ย (%)</th>
+          <th>จำนวนเดือน</th>
+          <th>ผ่อน/เดือน (บาท)</th>
+          <th>ลบ</th>
+        </tr>
+      </thead>
+      <tbody id="creditTable">
+        <tr>
+          <td contenteditable="true" data-label="บัตรเครดิต" oninput="recalculateAll()">ชื่อบัตรใหม่</td>
+          <td contenteditable="true" data-label="ดอกเบี้ย (%)" oninput="recalculateAll()">0</td>
+          <td contenteditable="true" data-label="จำนวนเดือน" oninput="recalculateAll()">6</td>
+          <td class="result" data-label="ผ่อน/เดือน (บาท)">-</td>
+          <td data-label="ลบ"><button onclick="deleteRow(this)">🗑</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button id="addRowBtn" onclick="addRow()">➕ เพิ่มบัตรเครดิต</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
