@@ -22,7 +22,7 @@ function addRow() {
   row.innerHTML = `
     <td contenteditable="true" data-label="บัตรเครดิต" oninput="recalculateAll()">ชื่อบัตรใหม่</td>
     <td contenteditable="true" data-label="ดอกเบี้ย (%)" oninput="recalculateAll()">0</td>
-    <td contenteditable="true" data-label="จำนวนเดือน" oninput="recalculateAll()">3</td>
+    <td contenteditable="true" data-label="จำนวนเดือน" oninput="recalculateAll()">0</td>
     <td class="result" data-label="ผ่อน/เดือน (บาท)">-</td>
     <td data-label="ลบ"><button onclick="deleteRow(this)">🗑</button></td>
   `;
