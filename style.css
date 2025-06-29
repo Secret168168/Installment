@@ -34,35 +34,62 @@ label {
   font-size: 20px;
 }
 
-input[type="number"] {
+/* Input ป้องกันซูมและขนาดใหญ่เต็มพื้นที่ */
+input[type="number"],
+input[type="text"],
+input,
+textarea {
+  font-size: clamp(18px, 4vw, 28px);
+  padding: 16px;
   width: 100%;
-  padding: 14px;
-  font-size: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #aaa;
-  border-radius: 6px;
   box-sizing: border-box;
+  border: 1px solid #aaa;
+  border-radius: 8px;
   background-color: #fcfcfa;
+  margin-bottom: 20px;
 }
 
+/* ปุ่มใหญ่แบบออโต้ */
+button {
+  font-size: clamp(20px, 5vw, 32px);
+  padding: 18px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 12px 0;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+/* ตารางใหญ่เต็มพื้นที่ */
 table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 16px;
-  font-size: 19px;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin-top: 24px;
+  font-size: 20px;
 }
 
 th, td {
   border: 1px solid #ccc;
-  padding: 14px 10px;
+  padding: 18px 14px;
   text-align: center;
   white-space: nowrap;
+  min-width: 100px;
 }
 
 th {
   background-color: #e0dcd5; /* เบจอมทอง */
   color: #2c2c2c;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 td[contenteditable="true"] {
@@ -77,29 +104,7 @@ td[contenteditable="true"] {
   font-size: 20px;
 }
 
-button {
-  padding: 16px;
-  background-color: #000000; /* ม่วงเข้มหรู */
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 20px;
-  margin: 12px 0;
-  width: 100%;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #4a148c;
-}
-
-#addRowBtn {
-  margin-top: 20px;
-}
-
-/* ✅ รูปบัตรเครดิต */
+/* รูปบัตรเครดิต */
 .card-img {
   width: 80px;
   height: 50px;
@@ -110,7 +115,7 @@ button:hover {
   margin: auto;
 }
 
-/* ✅ Responsive */
+/* Responsive สำหรับมือถือ */
 @media screen and (max-width: 768px) {
   table, thead, tbody, th, td, tr {
     display: block;
@@ -121,31 +126,33 @@ button:hover {
   }
 
   tr {
-    margin-bottom: 18px;
+    margin-bottom: 24px;
     border: 1px solid #ccc;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 16px;
+    border-radius: 12px;
     background: #fff;
   }
 
   td {
     text-align: left;
     position: relative;
-    padding-left: 50%;
+    padding-left: 55%;
     border: none;
     border-bottom: 1px solid #eee;
-    font-size: 20px;
+    font-size: 22px;
+    min-height: 50px;
   }
 
   td::before {
     content: attr(data-label);
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 16px;
+    left: 16px;
     width: 45%;
     font-weight: bold;
     color: #555;
     white-space: nowrap;
+    font-size: 18px;
   }
 
   td:last-child {
@@ -153,59 +160,15 @@ button:hover {
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
-  input[type="number"],
-  button {
-    font-size: 22px;
-  }
-}
-input[type="number"],
-input[type="text"],
-input,
-textarea {
-  font-size: 16px; /* ✅ กันซูมแน่นอน */
-}
-input[type="number"],
-input[type="text"],
-input,
-textarea {
-  font-size: clamp(18px, 4vw, 28px); /* ✅ ปรับขนาดอัตโนมัติ ตามหน้าจอ */
-  padding: 16px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #aaa;
-  border-radius: 8px;
-  background-color: #fcfcfa;
-}
-
-/* ปุ่มใหญ่แบบออโต้ */
-button {
-  font-size: clamp(20px, 5vw, 32px); /* ✅ ใหญ่ขึ้นตามขนาดจอ */
-  padding: 18px 20px;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #000000;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #222;
-}
-
-/* Responsive Mobile: ทำให้ input กับปุ่มใหญ่แบบเต็มหน้าจอแนวตั้ง */
-@media screen and (max-width: 768px) {
   input[type="number"],
   input[type="text"],
   button {
     width: 100vw;
     max-width: 100%;
-    font-size: clamp(22px, 6vw, 36px); /* ใหญ่มากสำหรับมือถือ */
-    padding: 20px;
+    font-size: clamp(24px, 6vw, 38px);
+    padding: 24px;
   }
 }
