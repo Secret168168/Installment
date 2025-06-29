@@ -161,3 +161,51 @@ button:hover {
     font-size: 22px;
   }
 }
+input[type="number"],
+input[type="text"],
+input,
+textarea {
+  font-size: 16px; /* ✅ กันซูมแน่นอน */
+}
+input[type="number"],
+input[type="text"],
+input,
+textarea {
+  font-size: clamp(18px, 4vw, 28px); /* ✅ ปรับขนาดอัตโนมัติ ตามหน้าจอ */
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background-color: #fcfcfa;
+}
+
+/* ปุ่มใหญ่แบบออโต้ */
+button {
+  font-size: clamp(20px, 5vw, 32px); /* ✅ ใหญ่ขึ้นตามขนาดจอ */
+  padding: 18px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+/* Responsive Mobile: ทำให้ input กับปุ่มใหญ่แบบเต็มหน้าจอแนวตั้ง */
+@media screen and (max-width: 768px) {
+  input[type="number"],
+  input[type="text"],
+  button {
+    width: 100vw;
+    max-width: 100%;
+    font-size: clamp(22px, 6vw, 36px); /* ใหญ่มากสำหรับมือถือ */
+    padding: 20px;
+  }
+}
