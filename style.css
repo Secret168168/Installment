@@ -1,38 +1,41 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f2f2;
+  background-color: #eaeaea; /* สีพื้นหลังที่ไม่สว่างจ้าเกินไป */
   padding: 20px;
   margin: 0;
+  font-size: 18px; /* เพิ่มขนาดฟอนต์ */
+  line-height: 1.6;
 }
 
 .container {
   max-width: 900px;
   margin: auto;
-  background: white;
-  padding: 20px;
+  background: #ffffff;
+  padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
 
 h1 {
   text-align: center;
-  color: #c62828;
-  font-size: 24px;
+  color: #b71c1c; /* สีแดงเข้ม อ่านง่าย */
+  font-size: 26px;
 }
 
 label {
   font-weight: bold;
   display: block;
   margin-bottom: 6px;
+  color: #333;
 }
 
 input[type="number"] {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 18px;
+  margin-bottom: 18px;
+  border: 1px solid #bbb;
   border-radius: 6px;
   box-sizing: border-box;
 }
@@ -40,18 +43,20 @@ input[type="number"] {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 12px;
+  font-size: 17px;
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 1px solid #ccc;
+  padding: 14px;
   text-align: center;
   white-space: nowrap;
 }
 
 th {
-  background-color: #ffebee;
+  background-color: #ffe0e0;
+  color: #000;
 }
 
 td[contenteditable="true"] {
@@ -60,33 +65,44 @@ td[contenteditable="true"] {
 }
 
 .result {
-  background-color: #f9f9f9;
+  background-color: #f1f8e9;
   font-weight: bold;
-  color: #2e7d32;
+  color: #1b5e20;
 }
 
 button {
-  padding: 10px 16px;
-  background-color: #c62828;
+  padding: 14px;
+  background-color: #b71c1c;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
-  margin: 8px 0;
+  font-size: 18px;
+  margin: 10px 0;
   width: 100%;
   box-sizing: border-box;
 }
 
 button:hover {
-  background-color: #b71c1c;
+  background-color: #8e0000;
 }
 
 #addRowBtn {
   margin-top: 20px;
 }
 
-/* ✅ Responsive */
+/* ✅ รูปบัตรเครดิตขนาดเท่ากัน */
+.card-img {
+  width: 80px;
+  height: 50px;
+  object-fit: contain;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: block;
+  margin: auto;
+}
+
+/* ✅ Responsive สำหรับมือถือ */
 @media screen and (max-width: 768px) {
   table, thead, tbody, th, td, tr {
     display: block;
@@ -128,6 +144,15 @@ button:hover {
   }
 
   h1 {
+    font-size: 22px;
+  }
+
+  input[type="number"],
+  button {
     font-size: 20px;
+  }
+
+  table {
+    font-size: 16px;
   }
 }

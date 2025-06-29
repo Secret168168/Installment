@@ -36,3 +36,21 @@ function deleteRow(button) {
   row.remove();
   recalculateAll();
 }
+function addRow() {
+  const table = document.getElementById("creditTable");
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td data-label="รูปบัตร">
+      <img src="card-default.png" alt="รูปบัตรเครดิต" class="card-img">
+    </td>
+    <td contenteditable="true" data-label="บัตรเครดิต" oninput="recalculateAll()">ชื่อบัตรใหม่</td>
+    <td contenteditable="true" data-label="ดอกเบี้ย (%)" oninput="recalculateAll()">0</td>
+    <td contenteditable="true" data-label="จำนวนเดือน" oninput="recalculateAll()">0</td>
+    <td class="result" data-label="ผ่อน/เดือน (บาท)">-</td>
+    <td data-label="ลบ"><button onclick="deleteRow(this)">🗑</button></td>
+  `;
+
+  table.appendChild(row);
+  recalculateAll();
+}
